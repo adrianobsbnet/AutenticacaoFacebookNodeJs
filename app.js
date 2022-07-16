@@ -80,7 +80,8 @@ app.get("/auth/facebook", passport.authenticate("facebook"));
 app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
-    failureRedirect: "/",
+    successRedirect: "/",
+    failureRedirect: "/login",
   }),
   function (req, res) {
     // Successful authentication, redirect home.
