@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyProject</title>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v14.0"
+      nonce="rFozX9uI"
+    ></script>
+    <% if (!user) { %>
+    <div style="width: 500px; height: 180px">
+      <h2 style="font-size: 40px">Welcome! Please log in.</h2>
+      <a href="/auth/google">Continuar com Google</a>
+      <p><a href="/auth/facebook">Continuar com FaceBook</a></p>
+      <a href="/auth/facebook" style="text-decoration: none">
+        <div
+          class="fb-login-button"
+          data-width=""
+          data-size="large"
+          data-button-type="login_with"
+          data-layout="default"
+          data-auto-logout-link="false"
+          data-use-continue-as="false"
+        ></div
+      ></a>
+    </div>
+    <% } else { %>
+    <h2>Hello, <%= user.displayName %>.</h2>
+    <a href="/logout">Logout</a>
+    <% } %>
+  </body>
+</html>
